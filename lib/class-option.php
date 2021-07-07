@@ -91,6 +91,13 @@ class TitanFrameworkOption {
 		 */
 		'transport' => '',
 
+                /**
+                 * (Optional) The CSS Class to apply to the option field for style targeting
+                 * @since 1.9.x
+                 * @var string
+                 */
+                'class' => '',
+
 		'example' => '', // An example value for this field, will be displayed in a <code>
 	);
 
@@ -282,11 +289,11 @@ class TitanFrameworkOption {
 		$id = $this->getID();
 		$name = $this->getName();
 		$evenOdd = self::$rowIndex++ % 2 == 0 ? 'odd' : 'even';
-
+                $class = $this->settings['class'];
 		$style = $this->getHidden() == true ? 'style="display: none"' : '';
 
 		?>
-		<tr valign="top" class="row-<?php echo self::$rowIndex ?> <?php echo $evenOdd ?>" <?php echo $style ?>>
+		<tr valign="top" class="row-<?php echo self::$rowIndex ?> <?php echo $evenOdd ?> <?php echo $class ?>" <?php echo $style ?>>
 		<th scope="row" class="first">
 			<label for="<?php echo ! empty( $id ) ? $id : '' ?>"><?php echo ! empty( $name ) ? $name : '' ?></label>
 		</th>
@@ -315,11 +322,11 @@ class TitanFrameworkOption {
 		$id = $this->getID();
 		$name = $this->getName();
 		$evenOdd = self::$rowIndex++ % 2 == 0 ? 'odd' : 'even';
-
+                $class = $this->settings['class'];
 		$style = $this->getHidden() == true ? 'style="display: none"' : '';
 
 		?>
-		<tr valign="top" class="row-<?php echo self::$rowIndex ?> <?php echo $evenOdd ?>" <?php echo $style ?>>
+		<tr valign="top" class="row-<?php echo self::$rowIndex ?> <?php echo $evenOdd ?> <?php echo $class ?>" <?php echo $style ?>>
 			<td class="second tf-<?php echo $this->settings['type'] ?>">
 		<?php
 	}
